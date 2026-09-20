@@ -1,6 +1,6 @@
 # Báo Cáo Nhóm — Lab 7: Embedding & Vector Store
 
-**Nhóm:** [Tên nhóm]
+**Nhóm:** BLAS
 **Thành viên:** [Họ tên từng thành viên]
 **Ngày:** [Ngày nộp]
 
@@ -97,13 +97,14 @@ Chạy `ChunkingStrategyComparator().compare()` trên 2-3 tài liệu:
 
 > **Đúng 5 câu hỏi**, đa dạng, có thể kiểm chứng; **ít nhất 1 câu** cần lọc metadata mới trả lời tốt. Đây là bộ câu hỏi chung cho mọi thành viên chạy.
 
-| # | Câu hỏi (Query) | Câu trả lời chuẩn (Gold Answer) | Chunk nào chứa thông tin? |
-|---|-------|-------------------------------|--------------------------|
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
-| 4 | | | |
-| 5 | | | |
+| # | Câu hỏi (Query) | Câu trả lời chuẩn (Gold Answer) | Chunk nào chứa thông tin? | Metadata filter kỳ vọng |
+|---|---|---|---|---|
+| 1 | Người Mua có bao lâu để gửi yêu cầu trả hàng/hoàn tiền sau khi đơn được giao thành công? | 15 ngày đối với sản phẩm thông thường; 24 giờ đối với thực phẩm tươi sống và đông lạnh. | `return-refund-policy.md` — mục **3.2. Điều kiện yêu cầu trả hàng/hoàn tiền** | `audience=buyer` hoặc `both` |
+| 2 | Sau khi yêu cầu trả hàng/hoàn tiền Shopee Mall được chấp thuận, Người Mua có bao lâu để gửi trả sản phẩm? | 6 ngày lịch kể từ ngày yêu cầu trả hàng/hoàn tiền được chấp thuận. | `shopee-mall-buyer.md` — mục **1.2. Chính sách Trả Hàng và Hoàn Tiền của Shopee Mall** | `audience=buyer` |
+| 3 | Khi Shopee yêu cầu bằng chứng cho một yêu cầu trả hàng/hoàn tiền Shopee Mall, Người Bán phải cung cấp trong bao lâu? | Tối đa 24 giờ kể từ khi nhận được yêu cầu của Shopee. | `shopee-mall-seller.md` — phần **Quy trình xử lý yêu cầu trả hàng/hoàn tiền áp dụng cho Người Bán tại Shopee Mall** | `audience=seller` |
+| 4 | Ai chịu trách nhiệm tiếp nhận bảo hành sản phẩm cho Người Mua trên Shopee? | Người Bán có trách nhiệm tiếp nhận bảo hành theo chính sách bảo hành của Người Bán và/hoặc nhà sản xuất. Shopee không trực tiếp thực hiện nghĩa vụ bảo hành, trừ trường hợp sản phẩm do chính Shopee đăng bán. | `warranty-general-seller.md` — mục **4. Chính sách bảo hành** | `audience=seller` |
+| 5 | Đối với tranh chấp không phải khiếu nại trả hàng/hoàn tiền, Shopee đưa ra hướng giải quyết trong bao lâu sau khi nhận đủ tài liệu? | Trong vòng 7 ngày làm việc kể từ ngày nhận đủ thông tin/tài liệu; trường hợp phức tạp có thể kéo dài hơn. | `dispute-resolution.md` — mục **Quy định chung về giải quyết tranh chấp/xử lý khiếu nại** | `audience=both` |
+
 
 ### Tổng hợp chất lượng truy xuất của nhóm
 
